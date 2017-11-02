@@ -1,0 +1,26 @@
+# List IPs:
+sudo iptables -L INPUT -n --line-numbers
+
+# Adding IP to block:
+sudo iptables -A INPUT -s x.x.x.x -j DROP
+sudo iptables -A OUTPUT -d x.x.x.x -j DROP
+
+#Removing Ip from being blocked:
+sudo iptables -D INPUT [number on side]
+
+#Removing all iptable configuations:
+sudo iptables -F
+
+#Blocking ipv4 addresses:
+sudo iptables -A INPUT -s x.x.x.x -j DROP
+sudo iptables -A OUTPUT -s x.x.x.x -j DROP
+
+
+#Blacklisting all IP addresses:
+sudo iptables -P INPUT DROP
+sudo iptables -P OUTPUT DROP
+
+#Whitelisting all IP addresses:
+sudo iptables -P OUTPUT Accept
+sudo iptables -P INPUT DROP
+
