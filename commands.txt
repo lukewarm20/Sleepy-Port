@@ -5,7 +5,7 @@ sudo iptables -L INPUT -n --line-numbers
 sudo iptables -A INPUT -s x.x.x.x -j DROP
 sudo iptables -A OUTPUT -d x.x.x.x -j DROP
 
-#Removing Ip from being blocked:
+#Removing IP from user configurations:
 sudo iptables -D INPUT [number on side]
 
 #Removing all iptable configuations:
