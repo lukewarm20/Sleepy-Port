@@ -44,6 +44,15 @@ sudo iptables -A INPUT -p tcp --dport 8000 -j DROP
 # Blocking all ports with exeptions to ssh script (port 22) and http (port 80)
 
 
+
+#Open port (in example ssh or port 22) to only one IP:
+sudo iptables -A INPUT -p tcp --dport 22 -s YourIP -j ACCEPT
+sudo iptables -A INPUT -p tcp --dport 22 -j DROP
+
+
+
+
+
 #!/bin/bash
 IPTABLES=/sbin/iptables
 
