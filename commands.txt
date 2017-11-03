@@ -75,7 +75,7 @@ iptables -A INPUT -i lo -p all -j ACCEPT
  
  
  
- 
+ ##Note: Could use whiptail? https://en.wikibooks.org/wiki/Bash_Shell_Scripting/Whiptail
  
  
   ##Note: Remember to write this all out by hand, just in case of hidden characters.
