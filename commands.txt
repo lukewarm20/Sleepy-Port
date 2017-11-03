@@ -58,7 +58,7 @@ IPTABLES=/sbin/iptables
 
 #start and flush
 $IPTABLES -F
-$IPTABLES -t nat -F
+$IPTABLES -t nat -Fabout:preferences#sync
 $IPTABLES -X
 $IPTABLES -P FORWARD DROP
 $IPTABLES -P INPUT   DROP
@@ -76,7 +76,12 @@ iptables -A INPUT -i lo -p all -j ACCEPT
  
  
   ##Note: Could use whiptail? https://en.wikibooks.org/wiki/Bash_Shell_Scripting/Whiptail
- 
+  ##Note: YES! So using this! (I hope to at least, that may change)
+Script for whip tails (once again, type this all out incase of hidden characters):
+
+  #!/bin/bash
+  
+  whiptail --title "Example Dialog" --msgbox "This is an example of a message box. You must hit OK to continue." 8 78
  
   ##Note: Remember to write this all out by hand, just in case of hidden characters.
   
