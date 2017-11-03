@@ -27,3 +27,29 @@ sudo iptables -P INPUT DROP
 #Saving configuations to kernel:
 sudo iptables-save
 
+#Blocking all traffic coming into port with exeptions of whitelisted ip:
+sudo iptables -A INPUT -p tcp --dport 8000 -s 1.2.3.4 -j ACCEPT
+sudo iptables -A INPUT -p tcp --dport 8000 -j DROP
+
+  another option for this same system ^:
+  sudo iptables -A INPUT -p tcp --dport 8000 -s ! 1.2.3.4 -j DROP
+  
+ #Swapping out configuation files and saving iptables configuations:
+  Saving iptables configuation:
+  sudo iptables-save > myfile
+  
+  Loading iptables configuation:
+  sudo iptables-load < myfile 
+  
+  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+  ##Note: Remember to write this all out by hand, just in case of hidden characters.
+  
+ 
+
