@@ -34,14 +34,34 @@ sudo iptables -A INPUT -p tcp --dport 8000 -j DROP
   another option for this same system ^:
   sudo iptables -A INPUT -p tcp --dport 8000 -s ! 1.2.3.4 -j DROP
   
- #Swapping out configuation files and saving iptables configuations:
+#Swapping out configuation files and saving iptables configuations:
   Saving iptables configuation:
   sudo iptables-save > myfile
   
   Loading iptables configuation:
   sudo iptables-load < myfile 
   
-  
+# Blocking all ports with exeptions to ssh script (port 22) and http (port 80)
+
+
+#!/bin/bash
+IPTABLES=/sbin/iptables
+
+#start and flush
+$IPTABLES -F
+$IPTABLES -t nat -F
+$IPTABLES -X
+$IPTABLES -P FORWARD DROP
+$IPTABLES -P INPUT   DROP
+$IPTABLES -P OUTPUT  ACCEPT
+
+#SSH traffic
+$IPTABLES -A INPUT -p tcp --dport 22 -j ACCEPT
+#HTTP traffic
+$IPTABLES -A INPUT -p tcp --dport 80 -j ACCEPT
+
+#loopback
+iptables -A INPUT -i lo -p all -j ACCEPT
  
  
  
