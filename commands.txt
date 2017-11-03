@@ -24,3 +24,6 @@ sudo iptables -P OUTPUT DROP
 sudo iptables -P OUTPUT Accept
 sudo iptables -P INPUT DROP
 
+#Saving configuations to kernel:
+sudo iptables-save
+
