@@ -76,6 +76,7 @@ iptables -A INPUT -i lo -p all -j ACCEPT
  
  
   ##Note: Could use whiptail? https://en.wikibooks.org/wiki/Bash_Shell_Scripting/Whiptail
+  http://xmodulo.com/create-dialog-boxes-interactive-shell-script.html
   ##Note: YES! So using this! (I hope to at least, that may change)
 Script for whip tails (once again, type this all out incase of hidden characters):
 What to do with whip tails:
