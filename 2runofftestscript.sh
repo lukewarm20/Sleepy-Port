@@ -1,5 +1,5 @@
 #!/bin/bash
-whiptail --title "Welcome to Sleepy Port!" --msgbox "Use -TAB- to change between different buttons, -SPACEBAR- for choosing options, -ARROW KEYS- for navigating, and -ENTER for applying changes." 10 60
+whiptail --title "Welcome to Sleepy Port!" --msgbox "Use -TAB- to change between different buttons, -SPACEBAR- for choosing options, -ARROW KEYS- for navigating, and -ENTER- for applying changes." 10 60
 
 #!/bin/bash
 IPTABLE=$(whiptail --title "Test Checklist Dialog" --radiolist \
