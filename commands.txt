@@ -78,10 +78,51 @@ iptables -A INPUT -i lo -p all -j ACCEPT
   ##Note: Could use whiptail? https://en.wikibooks.org/wiki/Bash_Shell_Scripting/Whiptail
   ##Note: YES! So using this! (I hope to at least, that may change)
 Script for whip tails (once again, type this all out incase of hidden characters):
+What to do with whip tails:
+Dialogue that explains how to use whiptail (i.e. press enter to go back, press space to configure options etc.
+"Save Changes?" Dialogue
 
-  #!/bin/bash
+#!/bin/bash
   
-  whiptail --title "Example Dialog" --msgbox "This is an example of a message box. You must hit OK to continue." 8 78
+whiptail --title "Example Dialog" --msgbox "Welcome to Sleepy Port! Press SPACEBAR to click highlighted text, press left to higlight main buttons, press right to highlight bottom of screen buttons, and press ENTER to escape from the session." 8 78
+
+whiptail --title "Menu example" --menu "Choose an option" 25 78 16 \
+"<-- Back" "Return to the main menu." \
+"Add User" "Add a user to the system." \
+"Modify User" "Modify an existing user." \
+"List Users" "List all users on the system." \
+"Add Group" "Add a user group to the system." \
+"Modify Group" "Modify a group and its list of members." \
+"List Groups" "List all groups on the system."
+
+#This runs a very basic version of what will happen (this has been hand written, this is okay):
+#!/bin/bash(
+
+##trap '' 2 this is used so users cannot use ctrl+c to escape
+ while true
+ do
+ echo "======================="
+ echo "Menu ----"
+ echo "======================="
+ echo "Enter 1 to list users 1: "
+ echo "Enter 2 to show calendar 2:"
+ echo -e "\n"
+ echo -e "Enter your selection \c"
+ read answer
+ case "$answer" in
+   1) who
+      uptime ;;
+
+   2) cal ;;
+   q) exit ;;
+ esac
+ echo -e "Enter return to continue \c"
+ read input
+done
+ 
+ 
+ 
+ 
  
   ##Note: Remember to write this all out by hand, just in case of hidden characters.
   
